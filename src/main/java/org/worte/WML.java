@@ -36,12 +36,13 @@ public class WML {
 		if (!ManifestFile.isFile()) {
 			
 			if (!ManifestDirectory.isDirectory()) {
+				
 				ManifestDirectory.mkdirs();
 			}
 			
 			FileOutputStream  ManifestFileOutputStream  = new FileOutputStream(ManifestFile);
-            Integer           ManifestBytesRead         = -1;
-            byte[]            ManifestBuffer            = new byte[4096];
+            		Integer           ManifestBytesRead         = -1;
+            		byte[]            ManifestBuffer            = new byte[4096];
             
             while ((ManifestBytesRead = ManifestInputStream.read(ManifestBuffer)) != -1) {
             	
@@ -85,20 +86,22 @@ public class WML {
 				if (!MetadataFile.isFile()) {
 					
 					if (!MetadataDirectory.isDirectory()) {
+						
 						MetadataDirectory.mkdirs();
+						
 					}
 					
 					FileOutputStream  MetadataFileOutputStream  = new FileOutputStream(MetadataFile);
-		            Integer           MetadataBytesRead         = -1;
-		            byte[]            MetadataBuffer            = new byte[4096];
+					    Integer           MetadataBytesRead         = -1;
+					    byte[]            MetadataBuffer            = new byte[4096];
 		            
-		            while ((MetadataBytesRead = MetadataInputStream.read(MetadataBuffer)) != -1) {
-		            	
-		            	MetadataFileOutputStream.write(MetadataBuffer, 0, MetadataBytesRead);
-		            	
-		            }
-					
-		            MetadataFileOutputStream.close();
+					    while ((MetadataBytesRead = MetadataInputStream.read(MetadataBuffer)) != -1) {
+
+						MetadataFileOutputStream.write(MetadataBuffer, 0, MetadataBytesRead);
+
+					    }
+
+					    MetadataFileOutputStream.close();
 				}
 				
 				InputStreamReader MetadataInputStreamReader = new InputStreamReader(MetadataInputStream);
@@ -129,18 +132,20 @@ public class WML {
 				if (!AssetIndexFile.isFile()) {
 					
 					if (!AssetIndexDirectory.isDirectory()) {
+						
 						AssetIndexDirectory.mkdirs();
+						
 					}
 					
 					FileOutputStream  AssetIndexFileOutputStream  = new FileOutputStream(AssetIndexFile);
-	                Integer           AssetIndexBytesRead         = -1;
-	                byte[]            AssetIndexBuffer            = new byte[4096];
+	                		Integer           AssetIndexBytesRead         = -1;
+	                		byte[]            AssetIndexBuffer            = new byte[4096];
 	                
-	                while ((AssetIndexBytesRead = AssetIndexInputStream.read(AssetIndexBuffer)) != -1) {
-	                	
-	                	AssetIndexFileOutputStream.write(AssetIndexBuffer, 0, AssetIndexBytesRead);
-	                	
-	                }
+					while ((AssetIndexBytesRead = AssetIndexInputStream.read(AssetIndexBuffer)) != -1) {
+
+						AssetIndexFileOutputStream.write(AssetIndexBuffer, 0, AssetIndexBytesRead);
+
+					}
 					
 					AssetIndexFileOutputStream.close();
 				}
@@ -173,8 +178,11 @@ public class WML {
 					if (!ObjectFile.isFile()) {
 						
 						if (!ObjectDirectory.isDirectory()) {
+							
 							ObjectDirectory.mkdirs();
+							
 						}
+						
 						String            ObjectURLString         = "http://resources.download.minecraft.net/" + ObjectPath;
 						URL               ObjectURL               = new URL(ObjectURLString);
 						URLConnection     ObjectURLConnection     = ObjectURL.openConnection();
@@ -182,10 +190,12 @@ public class WML {
 						FileOutputStream  ObjectFileOutputStream  = new FileOutputStream(ObjectFileDirectory);
 						
 						Integer ObjectBytesRead = -1;
-		                byte[] ObjectBuffer = new byte[4096];
+		                		byte[]  ObjectBuffer    = new byte[4096];
 						
 						while ((ObjectBytesRead = ObjectInputStream.read()) != -1) {
+							
 							ObjectFileOutputStream.write(ObjectBuffer, 0, ObjectBytesRead);
+							
 						}
 						
 						ObjectFileOutputStream.close();
@@ -213,20 +223,22 @@ public class WML {
 				if (!LogConfigsFile.isFile()) {
 					
 					if (!LogConfigsDirectory.isDirectory()) {
+						
 						LogConfigsDirectory.mkdirs();
+						
 					}
 					
 					FileOutputStream  LogConfigsFileOutputStream  = new FileOutputStream(LogConfigsFile);
-	                Integer           LogConfigsBytesRead         = -1;
-	                byte[]            LogConfigsBuffer            = new byte[4096];
-	                
-	                while ((LogConfigsBytesRead = LogConfigsInputStream.read(LogConfigsBuffer)) != -1) {
-	                	
-	                	LogConfigsFileOutputStream.write(LogConfigsBuffer, 0, LogConfigsBytesRead);
-	                	
-	                }
-					
-	                LogConfigsFileOutputStream.close();
+					Integer           LogConfigsBytesRead         = -1;
+					byte[]            LogConfigsBuffer            = new byte[4096];
+
+					while ((LogConfigsBytesRead = LogConfigsInputStream.read(LogConfigsBuffer)) != -1) {
+
+						LogConfigsFileOutputStream.write(LogConfigsBuffer, 0, LogConfigsBytesRead);
+
+					}
+
+					LogConfigsFileOutputStream.close();
 				}
 				// -- AssetsFolderLogConfigs --
 				
@@ -279,16 +291,16 @@ public class WML {
 								}
 								
 								FileOutputStream  LibraryClassifierFileOutputStream  = new FileOutputStream(LibraryClassifierFile);
-				                Integer           LibraryClassifierBytesRead         = -1;
-				                byte[]            LibraryClassifierBuffer            = new byte[4096];
+				                		Integer           LibraryClassifierBytesRead         = -1;
+				                		byte[]            LibraryClassifierBuffer            = new byte[4096];
 				                
-				                while ((LibraryClassifierBytesRead = LibraryClassifierInputStream.read(LibraryClassifierBuffer)) != -1) {
-				                	
-				                	LibraryClassifierFileOutputStream.write(LibraryClassifierBuffer, 0, LibraryClassifierBytesRead);
-				                	
-				                }
+								while ((LibraryClassifierBytesRead = LibraryClassifierInputStream.read(LibraryClassifierBuffer)) != -1) {
+
+									LibraryClassifierFileOutputStream.write(LibraryClassifierBuffer, 0, LibraryClassifierBytesRead);
+
+								}
 								
-				                LibraryClassifierFileOutputStream.close();
+				                		LibraryClassifierFileOutputStream.close();
 								
 							}
 							
@@ -304,7 +316,7 @@ public class WML {
 							    
 							    if (LibraryClassifierJarEntryName.endsWith(".dll")) {
 							    	
-							    	InputStream      LibraryClassifierJarInputStream      = LibraryClassifierJarFile.getInputStream(LibraryClassifierJarEntry);
+							    	InputStream LibraryClassifierJarInputStream = LibraryClassifierJarFile.getInputStream(LibraryClassifierJarEntry);
 							    	
 							    	File LibraryNativeFile      = new File(BinNativesRootDirectory + LibraryClassifierJarEntryName);
 							    	File LibraryNativeDirectory = new File(BinNativesRootDirectory);     
@@ -334,7 +346,6 @@ public class WML {
 							} 
 							
 							LibraryClassifierJarFile.close();
-							
 						}
 						
 					}
